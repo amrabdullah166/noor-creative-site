@@ -4,5 +4,7 @@
   "main": "worker.js",
   "compatibility_date": "2025-09-01",
   "assets": { "directory": ".", "binding": "ASSETS" },
-  "observability": { "enabled": true }
+  "observability": { "enabled": true },
+  // يحافظ على المتغيرات المضافة من لوحة Cloudflare عند كل نشر جديد
+  "keep_vars": true
 }
