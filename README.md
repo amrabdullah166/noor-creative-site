@@ -7,9 +7,11 @@
 يمكن أيضًا إضافة روابط فيسبوك أو يوتيوب مباشرة (انظر التعليمات أسفل `data.js`).
 الحد الأقصى لحجم الملف على GitHub هو 100 ميغابايت.
 
-## المساعد الذكي
-- الكود: `netlify/functions/chat.mjs` (التعليمات قابلة للتعديل في أعلى الملف).
-- أضف `OPENAI_API_KEY` في إعدادات Netlify → Environment variables. لا تضع المفتاح داخل الملفات.
+## المساعد الذكي (Cloudflare)
+- المنطق والتعليمات: `lib/chat-core.js` (التعليمات قابلة للتعديل في أعلى الملف).
+- Cloudflare Pages: يعمل تلقائيًا عبر `functions/api/chat.js`.
+- Cloudflare Workers: يعمل عبر `worker.js` و `wrangler.jsonc`.
+- أضف `OPENAI_API_KEY` كـ Secret في إعدادات المشروع على Cloudflare ثم أعد النشر. لا تضع المفتاح داخل الملفات.
 
 ## النشر
-اربط هذا المستودع بـ Netlify (Add new site → Import from Git). لا يحتاج أمر build؛ مجلد النشر هو الجذر.
+المشروع مربوط بـ GitHub؛ أي تعديل على فرع `main` يُنشر تلقائيًا. لا يحتاج أمر build.

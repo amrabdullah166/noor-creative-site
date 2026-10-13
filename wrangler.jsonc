@@ -1,0 +1,8 @@
+{
+  // يُستخدم فقط إذا كان المشروع على Cloudflare Workers (وليس Pages)
+  "name": "noor-creative-site",
+  "main": "worker.js",
+  "compatibility_date": "2025-09-01",
+  "assets": { "directory": ".", "binding": "ASSETS" },
+  "observability": { "enabled": true }
+}
