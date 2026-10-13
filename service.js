@@ -38,6 +38,7 @@
       let media;
       if (k === 'video') media = `<video src="${encodeURI(w.src)}#t=0.6" ${w.poster ? `poster="${encodeURI(w.poster)}"` : ''} muted loop playsinline preload="metadata"></video><span class="wi-play"></span>`;
       else if (k === 'image') media = `<img src="${encodeURI(w.src)}" alt="${w.title || ''}" loading="lazy">`;
+      else if (k === 'facebook' && !th) media = `<span class="wi-fbwrap${vert ? ' v' : ''}"><iframe class="wi-fb" data-w="${vert ? 400 : 560}" data-h="${vert ? 711 : 315}" src="${workEmbed(w).replace('autoplay=true', 'autoplay=false')}" loading="lazy" tabindex="-1" scrolling="no" title="${w.title || 'فيديو'}" allow="encrypted-media; picture-in-picture"></iframe><i class="wi-shield"></i></span><span class="wi-play"></span><span class="wi-src facebook">${FB}</span>`;
       else media = (th
         ? `<img src="${/^https?:/.test(th) ? th : encodeURI(th)}" alt="${w.title || ''}" loading="lazy" class="${vert ? 'v' : ''}">`
         : `<span class="wi-ph${vert ? ' v' : ''}"><i class="wi-ph-orb"></i><img src="img/mark.png" alt="">${w.title ? `<b class="wi-ph-t">${w.title}</b>` : ''}</span>`)
@@ -48,6 +49,12 @@
         <span class="wi-info"><b>${w.title || ''}</b>${w.client ? `<small>${w.client}</small>` : ''}</span>
       </button>`;
     }).join('');
+    // scale facebook preview iframes to fit their cards
+    const fit = () => document.querySelectorAll('.wi-fb').forEach(f => {
+      const box = f.parentElement, W = +f.dataset.w, H = +f.dataset.h, sc = box.clientWidth / W;
+      f.style.width = W + 'px'; f.style.height = H + 'px'; f.style.transform = `scale(${sc})`;
+    });
+    fit(); if (!window.__fbFit) { window.__fbFit = 1; addEventListener('resize', fit); }
     document.querySelectorAll('.work-item video').forEach(v => {
       v.parentElement.addEventListener('pointerenter', () => v.play().catch(() => {}));
       v.parentElement.addEventListener('pointerleave', () => v.pause());

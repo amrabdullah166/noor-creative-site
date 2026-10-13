@@ -66,7 +66,7 @@
 
   /* ---------- safe mini-markdown ---------- */
   const esc = s => s.replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-  const okUrl = u => /^(https:\/\/wa\.me\/\d+(\?[^\s]*)?|service\.html(#[\w-]+)?|index\.html(#[\w-]+)?|#[\w-]+)$/.test(u);
+  const okUrl = u => /^(https:\/\/wa\.me\/\d+(\?[^\s]*)?|service\.html(#[\w-]+)?|index\.html(#[\w-]+)?|#[\w-]+|https:\/\/www\.facebook\.com\/NoorCreativeAI\/?|https:\/\/www\.instagram\.com\/noor_creative_ai\/?)$/.test(u);
   const waHref = () => {
     const lastUser = [...msgs].reverse().find(m => m.role === 'user');
     const txt = `مرحبًا نور كريتف،\nتواصلت معكم من مساعد الموقع.${lastUser ? `\nاستفساري: ${lastUser.content.slice(0, 300)}` : ''}`;
@@ -84,7 +84,7 @@
     t = t.replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, (m, txt, url) => {
       const u = url.replace(/&amp;/g, '&');
       if (!okUrl(u)) return txt;
-      return `<a class="nc-btn-link" href="${esc(u)}">${txt} <i>↖</i></a>`;
+      return `<a class="nc-btn-link" href="${esc(u)}"${/^https:/.test(u) ? ' target="_blank" rel="noopener"' : ''}>${txt} <i>↖</i></a>`;
     });
     t = t.replace(/\*\*([^*]+)\*\*/g, '<b>$1</b>');
     return t.replace(/\u0001(\d+)\u0001/g, (m, i) => waBtn(wa[+i]));
