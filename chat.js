@@ -31,7 +31,7 @@
     <button class="nc-launch" type="button" aria-label="افتح مساعد نور" aria-expanded="false" aria-controls="ncPanel">
       <span class="nc-orb">${ico.spark}</span><span class="nc-launch-txt">اسأل نور</span>
     </button>
-    <div class="nc-teaser" hidden><button class="nc-teaser-x" type="button" aria-label="إخفاء">${ico.close}</button><b>أهلًا 👋</b> عندك سؤال عن خدماتنا؟ اسألني.</div>
+    <div class="nc-teaser" hidden><button class="nc-teaser-x" type="button" aria-label="إخفاء">${ico.close}</button><b>أهلًا بك 👋</b> عندك سؤال عن خدماتنا؟ اسألني.</div>
     <section class="nc-panel" id="ncPanel" role="dialog" aria-modal="false" aria-label="مساعد نور الذكي" data-lenis-prevent hidden>
       <header class="nc-head">
         <div class="nc-id">
