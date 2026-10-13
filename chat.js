@@ -249,6 +249,37 @@
     }
   }
 
+
+  /* ---------- WhatsApp hand-off with an AI summary of the conversation ---------- */
+  const localSummary = () => msgs.filter(m => m.role === 'user').slice(-5).map(m => '- ' + m.content.replace(/\s+/g, ' ').slice(0, 160)).join('\n');
+  const waUrl = (summary) => `https://wa.me/${WA_NUM}?text=${encodeURIComponent(
+    summary ? `مرحبًا نور كريتف،\nتواصلت معكم من مساعد الموقع، وهذا ملخص طلبي:\n${summary}` : 'مرحبًا نور كريتف، عندي استفسار عن خدماتكم')}`;
+  async function getSummary() {
+    if (!msgs.some(m => m.role === 'user')) return '';
+    if (location.protocol === 'file:') return localSummary();
+    try {
+      const ac = new AbortController(); const t = setTimeout(() => ac.abort(), 8000);
+      const res = await fetch(API, { method: 'POST', signal: ac.signal, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ mode: 'summary', messages: msgs.slice(-14) }) });
+      clearTimeout(t);
+      if (!res.ok) return localSummary();
+      const d = await res.json();
+      return (d.summary || '').trim() || localSummary();
+    } catch { return localSummary(); }
+  }
+  root.addEventListener('click', async e => {
+    const a = e.target.closest('a.nc-btn-wa, a.nc-to-wa');
+    if (!a || !msgs.some(m => m.role === 'user')) return;
+    e.preventDefault();
+    if (a.classList.contains('nc-wait')) return;
+    const win = window.open('about:blank', '_blank');
+    a.classList.add('nc-wait');
+    const label = a.querySelector('span'); const old = label ? label.textContent : '';
+    if (label) label.textContent = 'نجهّز ملخص طلبك…';
+    const url = waUrl(await getSummary());
+    a.classList.remove('nc-wait'); if (label) label.textContent = old;
+    if (win && !win.closed) { try { win.opener = null; } catch {} win.location.href = url; } else location.href = url;
+  });
+
   /* ---------- mobile keyboard / viewport ---------- */
   if (window.visualViewport) {
     const vv = window.visualViewport;

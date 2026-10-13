@@ -116,3 +116,4 @@
 .nc-panel[hidden],.nc-teaser[hidden]{display:none!important}
 
 .nc.nc-hide .nc-launch,.nc.nc-hide .nc-teaser{opacity:0;pointer-events:none;transform:translateY(20px) scale(.85)}
+.nc-wait{opacity:.75;pointer-events:none}
