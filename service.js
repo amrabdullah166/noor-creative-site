@@ -40,7 +40,7 @@
       else if (k === 'image') media = `<img src="${encodeURI(w.src)}" alt="${w.title || ''}" loading="lazy">`;
       else media = (th
         ? `<img src="${/^https?:/.test(th) ? th : encodeURI(th)}" alt="${w.title || ''}" loading="lazy" class="${vert ? 'v' : ''}">`
-        : `<span class="wi-ph${vert ? ' v' : ''}"><i class="wi-ph-orb"></i><img src="img/mark.png" alt=""></span>`)
+        : `<span class="wi-ph${vert ? ' v' : ''}"><i class="wi-ph-orb"></i><img src="img/mark.png" alt="">${w.title ? `<b class="wi-ph-t">${w.title}</b>` : ''}</span>`)
         + `<span class="wi-play"></span><span class="wi-src ${k}">${k === 'facebook' ? FB : YT}</span>`;
       return `
       <button class="work-item" data-i="${i}" aria-label="عرض ${w.title || 'العمل'}">

@@ -522,3 +522,4 @@ main,section,footer{position:relative;z-index:2}
 .wi-src.facebook{background:#1877f2}.wi-src.youtube{background:#ff0033}
 .lb-embed{display:block;border:0;border-radius:18px;background:#000;width:min(1100px,88vw);aspect-ratio:16/9;max-height:78vh}
 .lb-embed.v{width:auto;height:min(78vh,820px);aspect-ratio:9/16;max-width:88vw}
+.wi-ph-t{position:absolute;bottom:16px;inset-inline:0;text-align:center;font:700 .95rem var(--disp);color:rgba(255,255,255,.85);letter-spacing:.02em}

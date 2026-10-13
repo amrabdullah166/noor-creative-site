@@ -48,7 +48,20 @@ const SERVICES = [
   ],
   "icon": "<path pathLength=\"1\" d=\"M20.2 6 3 11l-.9-2.4c-.3-1.1.3-2.2 1.3-2.5l13.5-4c1.1-.3 2.2.3 2.5 1.3Z\"/><path pathLength=\"1\" d=\"m6.2 5.3 3.1 3.9\"/><path pathLength=\"1\" d=\"m12.4 3.4 3.1 4\"/><path pathLength=\"1\" d=\"M3 11h18v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z\"/><path pathLength=\"1\" d=\"m12 13.5.9 2.1 2.1.9-2.1.9-.9 2.1-.9-2.1-2.1-.9 2.1-.9Z\"/>",
   "works": [
-   {"title": "إعلان المستشفى", "client": "مستشفى", "src": "works/ai-video/مستشفى .mp4", "type": "video"}
+   {"title": "إعلان المستشفى", "client": "مستشفى", "src": "works/ai-video/مستشفى .mp4", "type": "video"},
+   {"title": "ريلز 01", "src": "https://www.facebook.com/reel/1630875741830886"},
+   {"title": "ريلز 02", "src": "https://www.facebook.com/reel/1659913739173146"},
+   {"title": "ريلز 03", "src": "https://www.facebook.com/reel/1059029080470141"},
+   {"title": "ريلز 04", "src": "https://www.facebook.com/reel/1808178433699438"},
+   {"title": "ريلز 05", "src": "https://www.facebook.com/reel/980044244480976"},
+   {"title": "ريلز 06", "src": "https://www.facebook.com/reel/1135499589149982"},
+   {"title": "ريلز 07", "src": "https://www.facebook.com/reel/1074395922143204"},
+   {"title": "ريلز 08", "src": "https://www.facebook.com/reel/1150976680686681"},
+   {"title": "ريلز 09", "src": "https://www.facebook.com/reel/1545862347553861"},
+   {"title": "ريلز 10", "src": "https://www.facebook.com/reel/2120674268843673"},
+   {"title": "ريلز 11", "src": "https://www.facebook.com/reel/2385921008901792"},
+   {"title": "ريلز 12", "src": "https://www.facebook.com/reel/2088705868702480"},
+   {"title": "ريلز 13", "src": "https://www.facebook.com/reel/1059190403589367"}
   ]
  },
  {
