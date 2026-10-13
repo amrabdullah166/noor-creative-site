@@ -116,7 +116,3 @@
 .nc-panel[hidden],.nc-teaser[hidden]{display:none!important}
 
 .nc.nc-hide .nc-launch,.nc.nc-hide .nc-teaser{opacity:0;pointer-events:none;transform:translateY(20px) scale(.85)}
-/* raise above the Netlify badge */
-.nc-launch,.nc-panel{bottom:calc(84px + env(safe-area-inset-bottom,0px))}
-.nc-teaser{bottom:calc(158px + env(safe-area-inset-bottom,0px))}
-@media (max-width:760px){.nc-launch{bottom:calc(76px + env(safe-area-inset-bottom,0px))}.nc-teaser{bottom:calc(142px + env(safe-area-inset-bottom,0px))}.nc-panel{bottom:auto}}
